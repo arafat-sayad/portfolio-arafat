@@ -8,6 +8,8 @@ If you'd like to **contribute** and make this much better for other users, have 
 
 Created something awesome for your fork of the portfolio and want to share it? Feel free to open a [pull request].
 
+
+
 ## Table of Contents
 - [Sections](#sections)
 - [Getting Started](#getting-started)
