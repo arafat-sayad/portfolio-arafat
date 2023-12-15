@@ -1,10 +1,10 @@
 on:
-    push:
-      branches: [main]
+  push:
+    branches: [main]
   
-  jobs:
+jobs:
     build:
-      runs-on: [ubuntu-latest]
+      runs-on: ubuntu-latest
       steps:
         - name: Checkout Source
           uses: actions/checkout@v3
@@ -22,7 +22,7 @@ on:
   
     deploy:
       needs: build
-      runs-on: [gcp-laravel]
+      runs-on: gcp-laravel
       steps:
         - name: Pull Docker Image
           run: docker pull sayad1/arafat-protfolio-app:latest
