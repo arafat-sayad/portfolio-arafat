@@ -1,33 +1,49 @@
+name: CI/CD Pipeline
+
 on:
   push:
     branches: [main]
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-       - name: Checkout Source
-         uses: actions/checkout@v3
-       - name: Create env file
-         run: |
-            touch .env
-            echo "${{ secrets.SERVER_ENV_PROD }}" > .env
-            cat .env
-       - name: Login to Docker Hub
-         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-       - name: Build Docker images
-         run: docker build -t sayad1/arafat-protfolio-app .
-       - name: Publish Images to Docker Hub
-         run: docker push sayad1/arafat-protfolio-app:latest
-  
+      - name: Checkout Source
+        uses: actions/checkout@v3
+      - name: Create env file
+        run: |
+          touch .env
+          echo "${{ secrets.SERVER_ENV_PROD }}" > .env
+          cat .env
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build Docker images
+        run: docker build -t sayad1/arafat-protfolio-app .
+      - name: Publish Images to Docker Hub
+        run: docker push sayad1/arafat-protfolio-app:latest
+
   deploy:
-      needs: build
-      runs-on: [arafat-protfolio]
-      steps:
-        - name: Pull Docker Image
-          run: docker pull sayad1/arafat-protfolio-app:latest
-        - name: Delete old container
-          run: docker rm -f laravel-octane-app || true
-        - name: Run Docker container
-          run: docker run -it -d -p 3000:3000 --name arafat-protfolio sayad1/arafat-protfolio-app:latest
-  
+    needs: build
+    runs-on: [arafat-protfolio]
+    steps:
+      - name: Delete old container
+        run: docker rm -f arafat-protfolio || true
+
+      - name: Check if Docker image exists
+        id: check_image
+        run: |
+          if docker inspect sayad1/arafat-protfolio-app:latest &> /dev/null; then
+            echo "::set-output name=image_exists::true"
+          else
+            echo "::set-output name=image_exists::false"
+          fi
+
+      - name: Delete Old docker images
+        if: steps.check_image.outputs.image_exists == 'true'
+        run: docker rmi sayad1/arafat-protfolio-app:latest
+
+      - name: Pull Docker Image
+        run: docker pull sayad1/arafat-protfolio-app:latest
+
+      - name: Run Docker container
+        run: docker run -it -d -p 3000:3000 --name arafat-protfolio sayad1/arafat-protfolio-app:latest
