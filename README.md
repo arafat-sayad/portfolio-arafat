@@ -36,7 +36,7 @@ Created something awesome for your fork of the portfolio and want to share it? F
 ✔️ Twitter Timeline\
 ✔️ GitHub Profile
 
-To view a live example, **[click here](http://34.73.195.205/)**.
+To view a live example, **[click here](http://arafat.big4tec.com)**.
 
 
 ## Getting Started
@@ -53,8 +53,8 @@ git@2.17.1 or higher
 ### Docker Commands
 
 ```
-1) BUILD IMAGE : docker build -t Arafat-folio:latest .
-2) RUN IMAGE: docker run -t -p 3000:3000 Arafat-folio:latest
+1) BUILD IMAGE : docker build -t sayad1/arafat-protfolio-app:latest .
+2) RUN IMAGE: docker run -t -p 3000:3000 sayad1/arafat-protfolio-app:latest
 ```
 
 
@@ -64,10 +64,10 @@ From your command line, clone and run developerFolio:
 
 ```bash
 # Clone this repository
-git clone https://github.com/arafat-sayad/protfolio.git
+git clone https://github.com/arafat-sayad/portfolio-arafat
 
 # Go into the repository
-cd protfolio
+cd portfolio-arafat
 
 # Setup default environment variables
 
@@ -92,7 +92,7 @@ Generate a classic GitHub personal access token following these [instructions](h
 Note: Configuring environment variables before deploying your portfolio is highly recommended as some components depend on API data. 
 
 ```bash
-- protfolio
+- portfolio-arafat
   - node_modules
   - public
   - src
