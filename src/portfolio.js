@@ -23,10 +23,10 @@ const greeting = {
   username: "Arafat Rahman",
   title: "Hi all, I'm Arafat",
   subTitle: emoji(
-    "Hello! I am living in Bnagladesh. I’m currently a Cloud specialist and DevOps Engineer. Highly motivated and detail-oriented professional seeking a Junior Cloud System Administrator & DevOps Engineer position to contribute to the efficient management of cloud infrastructure, deployment of applications, and implementation of DevOps practices. I have been working with cloud-based applications for more than 2 years. I am experienced in Linux System Administrator, cloud solutions, DevOps, and digital transformation. I have been providing professional services by solving real-world problems, creating customized solutions to address specific customer requirements, and improving overall productivity. I’ve been delivering a number of projects for large enterprises, including consultation, Linux administration, solving any problem with Linux, design, scoping, planning, migration, and technical documentation.."
+    "Hello! I am living in Bnagladesh. Highly motivated and detail-oriented professional seeking a DevOps Engineer & Cloud System Administrator position to contribute to efficiently managing DevOps infrastructure and Cloud System Administrator, deploying applications, implementing DevOps practices and Cloud System administrator . I have been working with Web-based applications for more than 3 years. I am experienced in Linux System administration, DevOps, and digital transformation and implementing software applications comprising Web Apps, Web APIs, Data Migration, and Integration Apps using Microsoft .NET and Microsoft Azure DevOps and technologies. I have provided professional services by solving real-world problems, creating customized solutions to address specific customer requirements, and improving overall productivity. I’ve been delivering a number of projects for large enterprises, including DevOps, solving any problem with Linux, design, scoping, planning, migration, and technical documentation..."
   ),
   resumeLink:
-    "https://drive.google.com/file/d/19RoBBSO562wx-vy-PE0MmQvGpxGdwdaG/view?usp=sharing", // Set to empty to hide the button
+    "https://drive.google.com/file/d/16-9Lsu80uDlJ9qM1gqs80wmMHgqagcok/view?usp=sharing", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
