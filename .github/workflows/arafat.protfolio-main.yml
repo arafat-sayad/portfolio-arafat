@@ -29,5 +29,5 @@ jobs:
         - name: Delete old container
           run: docker rm -f laravel-octane-app || true
         - name: Run Docker container
-          run: docker run -it -d -p 3001:3001 --name arafat-protfolio sayad1/arafat-protfolio-app:latest
+          run: docker run -it -d -p 3000:3000 --name arafat-protfolio sayad1/arafat-protfolio-app:latest
   
