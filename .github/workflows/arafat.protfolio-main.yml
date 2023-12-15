@@ -20,3 +20,14 @@ on:
         - name: Publish Images to Docker Hub
           run: docker push sayad1/arafat-protfolio-app:latest
   
+    deploy:
+      needs: build
+      runs-on: [gcp-laravel]
+      steps:
+        - name: Pull Docker Image
+          run: docker pull sayad1/arafat-protfolio-app:latest
+        - name: Delete old container
+          run: docker rm -f laravel-octane-app || true
+        - name: Run Docker container
+          run: docker run -it -d -p 3000:3000 --name arafat-protfolio sayad1/arafat-protfolio-app:latest
+  
