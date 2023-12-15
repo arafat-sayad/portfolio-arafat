@@ -22,7 +22,7 @@ jobs:
   
   deploy:
       needs: build
-      runs-on: [gcp-laravel]
+      runs-on: [arafat-protfolio]
       steps:
         - name: Pull Docker Image
           run: docker pull sayad1/arafat-protfolio-app:latest
