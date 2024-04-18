@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:14
+FROM node:18.19.1-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -18,4 +18,3 @@ EXPOSE 3000
 
 # Define the command to run your application
 CMD [ "npm", "start" ]
-
